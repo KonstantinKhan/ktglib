@@ -2,6 +2,7 @@ val ktorVersion: String by project
 
 plugins {
     kotlin("jvm")
+    id("io.ktor.plugin")
 }
 
 dependencies {
