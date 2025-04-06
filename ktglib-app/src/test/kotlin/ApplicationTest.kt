@@ -3,6 +3,7 @@ package ru
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
+import ru.calorie_craft.app.module
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

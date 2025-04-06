@@ -1,4 +1,4 @@
-package ru
+package ru.calorie_craft.app
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

@@ -1,10 +1,11 @@
-package ru
+package ru.calorie_craft.app
 
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
+import ru.calorie_craft.app.AppKtorConfig
 import ru.ktglib.types.update.UpdateWithMessage
 
 private val json: Json by lazy {
@@ -13,7 +14,7 @@ private val json: Json by lazy {
     }
 }
 
-fun Application.configureRouting() {
+fun Application.configureRouting(config: AppKtorConfig) {
     routing {
         get("/") {
             println("call get /")
@@ -30,6 +31,11 @@ fun Application.configureRouting() {
                             .encodeToString(data)
                     }"
                 )
+                try {
+                    config.sender.sendMessage(data.message.from.userId,"Hi!")
+                } catch (e: Error) {
+                    println("error: $e")
+                }
                 call.respondText("ok")
             } catch (e: Error) {
                 println(e.message)
