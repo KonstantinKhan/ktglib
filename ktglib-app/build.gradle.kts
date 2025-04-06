@@ -33,6 +33,9 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     // https://mvnrepository.com/artifact/io.ktor/ktor-server-config-yaml-jvm
     implementation("io.ktor:ktor-server-config-yaml:$ktorVersion")
+
+    implementation(project(":ktglib-types"))
+
     // https://mvnrepository.com/artifact/io.ktor/ktor-server-test-host
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
     testImplementation(kotlin("test"))
