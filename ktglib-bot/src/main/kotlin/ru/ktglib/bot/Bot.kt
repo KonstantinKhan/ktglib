@@ -4,7 +4,6 @@ import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 
 class Bot(baseUrl: String) {
@@ -16,9 +15,8 @@ class Bot(baseUrl: String) {
     }
 
     suspend fun sendMessage(chatId: Long, message: String) {
-        println("chat_id: $chatId")
         try {
-            val v = client.post("sendMessage") {
+            client.post("sendMessage") {
                 setBody(
                     """ {
                 "chat_id": $chatId,
@@ -30,6 +28,5 @@ class Bot(baseUrl: String) {
         } catch (e: Exception) {
             println("error: ${e.message}")
         }
-
     }
 }
